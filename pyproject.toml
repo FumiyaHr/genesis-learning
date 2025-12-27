@@ -1,0 +1,12 @@
+[project]
+name = "genesis-learning"
+version = "0.1.0"
+description = "Genesis 物理シミュレーション学習プロジェクト"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "genesis-world>=0.3.10",
+    "torch>=2.9.1",
+    "torchaudio>=2.9.1",
+    "torchvision>=0.24.1",
+]

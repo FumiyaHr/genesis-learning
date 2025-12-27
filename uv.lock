@@ -402,6 +402,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "genesis-world" },
+    { name = "ompl" },
     { name = "torch" },
     { name = "torchaudio" },
     { name = "torchvision" },
@@ -410,6 +411,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "genesis-world", specifier = ">=0.3.10" },
+    { name = "ompl", specifier = ">=1.7.0" },
     { name = "torch", specifier = ">=2.9.1" },
     { name = "torchaudio", specifier = ">=2.9.1" },
     { name = "torchvision", specifier = ">=0.24.1" },
@@ -1120,6 +1122,17 @@ version = "12.8.90"
 source = { registry = "https://pypi.org/simple" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a2/eb/86626c1bbc2edb86323022371c39aa48df6fd8b0a1647bc274577f72e90b/nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:5b17e2001cc0d751a5bc2c6ec6d26ad95913324a4adb86788c944f8ce9ba441f", size = 89954, upload-time = "2025-03-07T01:42:44.131Z" },
+]
+
+[[package]]
+name = "ompl"
+version = "1.7.0"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/9f/bd/5e6bf3005ce75fc5f8887e02b582d4498126bdf83e67427ad9a61402b99b/ompl-1.7.0-cp312-cp312-macosx_15_0_arm64.whl", hash = "sha256:4d0aa8d6e4b1fbdce3497a9598670420cc9104f22987ecc9491f6c5c435a6619", size = 19425013, upload-time = "2025-04-12T21:42:08.548Z" },
+    { url = "https://files.pythonhosted.org/packages/cb/21/aafbbeaf90ae0d67b0390c61a00c0bd5848f8e60f8d230c8f4f04893c54b/ompl-1.7.0-cp312-cp312-macosx_15_0_x86_64.whl", hash = "sha256:acfe8cdd7234668097ef110d25b4108bfb615602e0c5e6a7aad562c281982918", size = 24930843, upload-time = "2025-04-12T21:42:15.662Z" },
+    { url = "https://files.pythonhosted.org/packages/60/1f/8eb9dfe97b31ad15713e92c4dd461cb48e575ab607caca451a5c53988f25/ompl-1.7.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:b54c49d9e41388f42fa8c1dac4fa07c457cd70bc7eea8c5db16b2ede109c4709", size = 29079086, upload-time = "2025-04-12T21:42:24.291Z" },
+    { url = "https://files.pythonhosted.org/packages/6b/79/cd21a285c74824bde1919e2e674a5fa69ebd4ddeace0b0f5fd54401a8d62/ompl-1.7.0-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:66dff892213cfff13b7b66cf39fa5a04cb6b333be0ead3fbb22a0be10b503b21", size = 28358999, upload-time = "2025-04-12T21:42:33.082Z" },
 ]
 
 [[package]]

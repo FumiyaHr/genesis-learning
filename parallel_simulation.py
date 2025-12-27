@@ -36,6 +36,16 @@ scene = gs.Scene(
     show_viewer=True,
 )
 
+########## カメラ追加（録画用） ##########
+
+cam = scene.add_camera(
+    res=(1280, 720),
+    pos=(5.0, -3.0, 3.0),
+    lookat=(2.0, 1.0, 0.5),
+    fov=40,
+    GUI=False,
+)
+
 ########## Entity 追加 ##########
 
 # 床
@@ -60,6 +70,11 @@ print("シーンをビルド中...")
 scene.build(n_envs=B, env_spacing=(2.0, 2.0))
 
 print("ビルド完了！")
+
+########## 録画開始 ##########
+
+print("録画を開始...")
+cam.start_recording()
 
 ########## 関節インデックスの取得 ##########
 
@@ -91,6 +106,7 @@ franka.control_dofs_position(batched_position, dofs_idx)
 
 for i in range(200):
     scene.step()
+    cam.render()
 
 print("全環境が同じ姿勢になりました")
 
@@ -117,6 +133,7 @@ franka.control_dofs_position(different_positions, dofs_idx)
 
 for i in range(300):
     scene.step()
+    cam.render()
 
 print("各環境が異なる姿勢になりました")
 
@@ -141,6 +158,7 @@ franka.control_dofs_position(
 
 for i in range(300):
     scene.step()
+    cam.render()
 
 print("環境 0, 2, 4 がホームポジションに戻りました")
 
@@ -177,8 +195,14 @@ for i in range(300):
 
     franka.control_dofs_position(batched_dynamic, dofs_idx)
     scene.step()
+    cam.render()
 
 print("動的制御デモ完了")
+
+########## 録画停止・保存 ##########
+
+cam.stop_recording(save_to_filename='parallel_simulation.mp4', fps=60)
+print("動画を 'parallel_simulation.mp4' に保存しました")
 
 ########## まとめ ##########
 

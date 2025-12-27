@@ -31,6 +31,16 @@ scene = gs.Scene(
     show_viewer=True,
 )
 
+########## カメラ追加（録画用） ##########
+
+cam = scene.add_camera(
+    res=(1280, 720),
+    pos=(3, -1, 1.5),
+    lookat=(0.0, 0.0, 0.5),
+    fov=30,
+    GUI=False,
+)
+
 ########## Entity 追加 ##########
 
 # 床
@@ -52,6 +62,11 @@ franka = scene.add_entity(
 ########## ビルド ##########
 
 scene.build()
+
+########## 録画開始 ##########
+
+print("録画を開始...")
+cam.start_recording()
 
 ########## 制御ゲインの設定 ##########
 
@@ -111,10 +126,12 @@ print("パス実行中...")
 for waypoint in path:
     franka.control_dofs_position(waypoint)
     scene.step()
+    cam.render()
 
 # PD制御の遅れを補償（最後のウェイポイントに到達するまで待機）
 for i in range(100):
     scene.step()
+    cam.render()
 
 print("プリグラスプ位置に到達")
 
@@ -133,6 +150,7 @@ qpos = franka.inverse_kinematics(
 franka.control_dofs_position(qpos[:-2], motors_dof)
 for i in range(100):
     scene.step()
+    cam.render()
 
 print("キューブに接近完了")
 
@@ -149,6 +167,7 @@ franka.control_dofs_force(np.array([-0.5, -0.5]), fingers_dof)
 
 for i in range(100):
     scene.step()
+    cam.render()
 
 print("把持完了")
 
@@ -169,8 +188,14 @@ franka.control_dofs_force(np.array([-0.5, -0.5]), fingers_dof)
 
 for i in range(200):
     scene.step()
+    cam.render()
 
 print("持ち上げ完了！")
+
+########## 録画停止・保存 ##########
+
+cam.stop_recording(save_to_filename='inverse_kinematics.mp4', fps=60)
+print("動画を 'inverse_kinematics.mp4' に保存しました")
 
 ########## まとめ ##########
 

@@ -8,6 +8,8 @@ dependencies = [
     "genesis-world>=0.3.10",
     "ipython>=9.8.0",
     "ompl>=1.7.0",
+    "rsl-rl-lib==2.2.4",
+    "tensorboard>=2.20.0",
     "torch>=2.9.1",
     "torchaudio>=2.9.1",
     "torchvision>=0.24.1",

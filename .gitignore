@@ -10,3 +10,6 @@ wheels/
 .venv
 
 *.mp4
+
+# Training logs and model checkpoints
+logs/

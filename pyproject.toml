@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "genesis-world>=0.3.10",
+    "ipython>=9.8.0",
     "ompl>=1.7.0",
     "torch>=2.9.1",
     "torchaudio>=2.9.1",

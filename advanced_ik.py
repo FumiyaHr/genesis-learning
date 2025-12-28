@@ -20,7 +20,7 @@ print("=" * 50)
 ########## 初期化 ##########
 
 # macOS では CPU バックエンドを使用
-gs.init(backend=gs.cpu)
+gs.init(backend=gs.metal)
 
 ########## シーン作成 ##########
 

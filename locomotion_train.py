@@ -260,6 +260,7 @@ def main():
         obs_cfg=obs_cfg,
         reward_cfg=reward_cfg,
         command_cfg=command_cfg,
+        #show_viewer=True,  # 訓練中の様子を表示
     )
 
     ########## 訓練 ##########
